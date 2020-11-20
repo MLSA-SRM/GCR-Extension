@@ -1,6 +1,6 @@
 {
     "manifest_version":2,
-    "name":"Test Bin exp",
+    "name":"GCR extension Tester",
     "version":"1.0",
     "content_scripts":
     [
