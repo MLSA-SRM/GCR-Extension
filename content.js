@@ -7,5 +7,3 @@ function getLinks()
     chrome.tabs.executeScript({file: "background.js"});
 }
 
-
-
