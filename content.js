@@ -1,11 +1,11 @@
-console.log("chrome extension ready to go");
+console.log("Chrome extension is up and running...");
 
-chrome.runtime.onMessage.addListener(gotMessage);
+document.addEventListener("DOMContentLoaded", ()=>{document.getElementById("runScript").addEventListener("click",getLinks)});
 
-function gotMessage(message, sender, sendResponse)
+function getLinks()
 {
-    console.log(message.txt);
-
+    chrome.tabs.executeScript({file: "background.js"});
 }
 
-console.log(document.getElementsByClassName("lziZub tLDEHd"));
+
+
