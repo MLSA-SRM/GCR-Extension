@@ -1,20 +1,27 @@
-console.log("background scripts running");
+console.log("Background scripts running...");
 
-function buttonClicked()
-{
-    console.log("This button has been clicked!");
-    //Code to scroll the entire active tab webpage
-    window.scrollTo({
-        top: 0,
-        bottom: 100,
-        behavior: 'smooth'
-      });
-    // window.scrollTo(0,document.body.scrollHeight);
-    var links=document.getElementsByClassName('uqZtlf x0HGk QRiHXd MymH0d maXJsd'), hrefs = [];
-    for (var i = 0; i<links.length; i++)
-    {   
+function pageScroll() {
+    var startTime = new Date().getTime();
+    var interval = setInterval(function () {
+        if (new Date().getTime() - startTime > 25000) {
+            clearInterval(interval);
+            console.log("Done! Now extracting links...");
+            buttonClicked();
+            return;
+        }
+        //do whatever here..
+        window.scrollBy(0,10000);
+    }, 2000);
+    
+}
+
+function buttonClicked() {
+    console.log("Inside the buttonClicked function")
+    var links = document.getElementsByClassName('uqZtlf x0HGk QRiHXd MymH0d maXJsd'), hrefs = [];
+    for (var i = 0; i < links.length; i++) {
         hrefs.push(links[i].href);
     }
     console.log(hrefs);
+    // document.getElementById("links").innerHTML = hrefs;
 }
-buttonClicked();
+pageScroll();

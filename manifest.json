@@ -2,6 +2,8 @@
     "manifest_version":2,
     "name":"Easy GCR Downloader",
     "version":"1.0",
+    "description": "Get rid of all the hassle of manually downloading materials from Google Classroom. 
+    Choose which materials to be downloaded using this extension.",
     "permissions":["activeTab"],
     "content_scripts":
     [
