@@ -1,12 +1,20 @@
 console.log("background scripts running");
-chrome.browserAction.onClicked.addListener(buttonClicked);
 
-function buttonClicked(tab)
+function buttonClicked()
 {
-    //console.log(tab);
-
-    let msg = {
-        txt: "checking msging function"
+    console.log("This button has been clicked!");
+    //Code to scroll the entire active tab webpage
+    window.scrollTo({
+        top: 0,
+        bottom: 100,
+        behavior: 'smooth'
+      });
+    // window.scrollTo(0,document.body.scrollHeight);
+    var links=document.getElementsByClassName('uqZtlf x0HGk QRiHXd MymH0d maXJsd'), hrefs = [];
+    for (var i = 0; i<links.length; i++)
+    {   
+        hrefs.push(links[i].href);
     }
-    chrome.tabs.sendMessage(tab.id, msg);
+    console.log(hrefs);
 }
+buttonClicked();

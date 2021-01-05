@@ -1,29 +1,8 @@
-console.log("chrome extension ready to go");
+console.log("Chrome extension is up and running...");
 
-chrome.runtime.onMessage.addListener(gotMessage);
+document.addEventListener("DOMContentLoaded", ()=>{document.getElementById("runScript").addEventListener("click",getLinks)});
 
-function gotMessage(message, sender, sendResponse)
+function getLinks()
 {
-    console.log(message.txt);
+    chrome.tabs.executeScript({file: "background.js"});
 }
-
-
-// start of code that looks for files with links in the preview mode 
-
-function getPreviewLink()
-{
-    var className = 'VkhHKd e7EEH nQaZq';  // unique for each a/c
-    var links = document.getElementsByClassName(className), hrefs = [];
-    
-    for (var i = 0; i < links.length; i++)
-    {   
-        hrefs.push(links[i].href);
-    }
-
-    console.log(hrefs);
-    console.log(links.length);
-}
-setTimeout(getPreviewLink, 7000); 
-                // the time can be modified. 7 secs seems to be optimal.
-
-// end of code that looks for files with links in the preview mode 
