@@ -11,7 +11,24 @@
     <h2>Download all your documents. <br>Just in one click!</h2>
     <br>
     <button id="runScript">Extract Links</button>
-    <p id="links">Your links will show up here...</p>
+    <p id="links">Your document titles will show up here...</p>
+    <p id="selectedCount"></p>
+    <div id="selectAll">
+        <input type="checkbox" name="Select All" id="selAllCheck">
+        <span id = "SAText">Select All</span>
+    </div>
+    <ul id="titleList">
+
+    </ul>     
+    <div class="loadingAni wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <!-- <span>Hold Up! We are compiling your links!</span> -->
+    </div>
     <script src="content.js" charset="UTF-8"></script>
 </body>
 </html>
