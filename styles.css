@@ -39,3 +39,176 @@ h1, h2{
     background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
     text-decoration: none;
   }
+#links{
+  text-align: center;
+  line-height: 1.4rem;
+  font-size: 18px;
+}
+li:hover{
+  cursor: pointer;
+}
+.check{
+  display: inline-block;
+  transform: translate(280px,-23px);
+}
+#titleList{
+  line-height: 1.4rem;
+  font-size: 18px;
+}
+#selectedCount{
+  text-align: center;
+  font-size: 1.2rem;
+}
+#SAText{
+  display: none;
+  margin-left: 43%;
+  transform: translate(20px,-19px);
+  font-size: 0.8rem;
+}
+#selAllCheck{
+  display: none;
+  margin-left: 40%;
+}
+#dwnbtn{
+  background: #00ff6f;
+  background-image: -webkit-linear-gradient(top, #00ff6f, #52c45a);
+  background-image: -moz-linear-gradient(top, #00ff6f, #52c45a);
+  background-image: -ms-linear-gradient(top, #00ff6f, #52c45a);
+  background-image: -o-linear-gradient(top, #00ff6f, #52c45a);
+  background-image: linear-gradient(to bottom, #00ff6f, #52c45a);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  margin-left: 25%;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+
+#dwnbtn:hover {
+  background: #2dfc79;
+  background-image: -webkit-linear-gradient(top, #2dfc79, #198c53);
+  background-image: -moz-linear-gradient(top, #2dfc79, #198c53);
+  background-image: -ms-linear-gradient(top, #2dfc79, #198c53);
+  background-image: -o-linear-gradient(top, #2dfc79, #198c53);
+  background-image: linear-gradient(to bottom, #2dfc79, #198c53);
+  text-decoration: none;
+}
+
+/* Loading animation */
+.loadingAni{
+  margin-top: 9.5rem;
+  display: none;
+
+}
+.wrapper{
+  width:200px;
+  height:60px;
+  position: absolute;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}
+.circle{
+  width:20px;
+  height:20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #08d9d6;
+  left:15%;
+  transform-origin: 50%;
+  animation: circle .5s alternate infinite ease;
+}
+
+@keyframes circle{
+  0%{
+      top:60px;
+      height:5px;
+      border-radius: 50px 50px 25px 25px;
+      transform: scaleX(1.7);
+  }
+  40%{
+      height:20px;
+      border-radius: 50%;
+      transform: scaleX(1);
+  }
+  100%{
+      top:0%;
+  }
+}
+.circle:nth-child(2){
+  left:45%;
+  animation-delay: .2s;
+}
+.circle:nth-child(3){
+  left:auto;
+  right:15%;
+  animation-delay: .3s;
+}
+.shadow{
+  width:20px;
+  height:4px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  top:62px;
+  transform-origin: 50%;
+  z-index: -1;
+  left:15%;
+  filter: blur(1px);
+  animation: shadow .5s alternate infinite ease;
+}
+
+@keyframes shadow{
+  0%{
+      transform: scaleX(1.5);
+  }
+  40%{
+      transform: scaleX(1);
+      opacity: .7;
+  }
+  100%{
+      transform: scaleX(.2);
+      opacity: .4;
+  }
+}
+.shadow:nth-child(4){
+  left: 45%;
+  animation-delay: .2s
+}
+.shadow:nth-child(5){
+  left:auto;
+  right:15%;
+  animation-delay: .3s;
+}
+
+/* Vertical Scrollbar */
+/* Scrollbar Horizontal Customization */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#08d9d6; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #79bfee; 
+}
