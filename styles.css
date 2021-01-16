@@ -100,6 +100,33 @@ li:hover{
   background-image: linear-gradient(to bottom, #2dfc79, #198c53);
   text-decoration: none;
 }
+/* Loading bar*/
+#loadingBar{
+  display: none;
+  text-align: center;
+  width: auto;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 0.8rem;
+  height: 2rem;
+}
+#progressPercent{
+  display: none;
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1rem;
+}
+/* progress::-webkit-progress-value{
+  background: rgb(11, 173, 11); 
+} */
+/* progress {
+  -webkit-appearance: none;
+  border-radius: 50%;
+}
+progress::-webkit-progress-value {
+ -webkit-appearance: none;
+ background: orangered;
+} */
 
 /* Loading animation */
 .loadingAni{

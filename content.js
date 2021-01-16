@@ -6,11 +6,13 @@ document.querySelector("#dwnbtn").style.display = "none";
 
 
 chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
+    document.querySelector(".loadingAni").style.display = "none";
+    // document.querySelector("#loadingBar").style.display = "none";
+    // document.querySelector("#progressPercent").style.display = "none";
 
     var ul = document.getElementById("titleList");
     //for loop: file names
     for (var i = 0; i < response["titleList"].length; i++) {
-        document.querySelector(".loadingAni").style.display = "none";
 
         var titleArray = response["titleList"];
         var linkArray = response["hrefList"];
@@ -49,29 +51,25 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
     document.querySelector("#SAText").style.display = "block";
 
     // var SA = document.getElementById("selectAll");
-    document.getElementById("selAllCheck").addEventListener("click",selectAllFunc);
+    document.getElementById("selAllCheck").addEventListener("click", selectAllFunc);
 
-    function selectAllFunc(){
-        if(this.checked == true)
-        {
-            for(var i = 0; i < response["titleList"].length; i++)
-            {
+    function selectAllFunc() {
+        if (this.checked == true) {
+            for (var i = 0; i < response["titleList"].length; i++) {
                 document.querySelectorAll(".check")[i].checked = true;
                 document.getElementById("selectedCount").innerHTML = response["titleList"].length + " / " + response["titleList"].length + " selected";
 
             }
         }
-        else if(this.checked == false)
-        {
-            for(var i = 0; i < response["titleList"].length; i++)
-            {
+        else if (this.checked == false) {
+            for (var i = 0; i < response["titleList"].length; i++) {
                 document.querySelectorAll(".check")[i].checked = false;
                 document.getElementById("selectedCount").innerHTML = "0" + " / " + response["titleList"].length + " selected";
 
             }
         }
     }
-    
+
 
     var numberOfCheckedItems = 0;
     for (var j = 0; j < response["titleList"].length; j++) {
@@ -92,30 +90,69 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
         var checkboxes = document.getElementsByClassName("check");
         var selectedFiles = [];
         var selectedLinks = [];
+        var selectedTitles = [];
         for (var i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i].checked) {
                 selectedFiles.push(parseInt(checkboxes[i].value));
             }
 
         }
-        console.log(selectedFiles);
         for (j = 0; j < selectedFiles.length; j++) {
             var selectedValue = selectedFiles[j];
             selectedLinks.push(response["hrefList"][selectedValue]);
         }
-        console.log(selectedLinks);
+        // JSONIFIED TITLE NAMES    
+        // for(var k = 0; k < selectedFiles.length; k++){
+        //     var selTitle = titleArray[k];
+        //     selectedTitles.push(selTitle);
+        // }
+        for (var k = 0; k < selectedFiles.length; k++) {
+            var str = selectedLinks[k];
+            var downloadableLink = str.replace("open", "uc");
+            downloadableLink = downloadableLink + "&export=download";
+            window.open(downloadableLink);
+        }
+        var linksTitles = {
+            URL: selectedLinks,
+            Name: selectedTitles
+        }
+        console.log(JSON.stringify(linksTitles));
+        // console.log(JSON.stringify(selectedTitles));
+
+        //Refresh the extension to empty array
+        location.reload();
+
+        //POST Request to the API
+        const url = 'https://randomuser.me/api'; //API link to be replaced
+
+        let data = {
+            dwnldLinks: selectedLinks
+        }
+        jsonObject = JSON.stringify(data);
+        // console.log(jsonObject);
+
+        /*var request = new Request(url, {
+            method: 'POST',
+            body: data,
+            headers: new Headers()
+        }); 
+
+        fetch(request)
+            .then(function () {
+                // Handle response we get from the API
+            })*/
     });
-    
+
     for (var j = 0; j < response["titleList"].length; j++) {
         document.querySelectorAll(".titleItems")[j].addEventListener("click", sendFileName);
     }
     function sendFileName() {
         var fileClicked = this.innerHTML;
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, fileClicked) 
+            chrome.tabs.sendMessage(tabs[0].id, fileClicked)
         });
     }
-    
+
 });
 // -- END OF chrome.runtime.onMessage() -- 
 
@@ -127,4 +164,17 @@ function getLinks() {
     chrome.tabs.executeScript({ file: "background.js" });
     document.getElementById("links").innerHTML = "Please wait while we scroll through the page and extract links!";
     document.querySelector(".loadingAni").style.display = "block";
+    document.getElementById("runScript").disabled = true;
+    // document.querySelector("#loadingBar").style.display = "block";
+    // document.querySelector("#progressPercent").style.display = "block";
+
+    // var startTime = (new Date()).getTime();
+    // var interval = setInterval(function () {
+    //     if ((new Date()).getTime() - startTime < 25000) {
+    //         document.getElementById("loadingBar").value += 0.48;
+    //         document.getElementById("progressPercent").innerHTML = Math.ceil(document.getElementById("loadingBar").value) + "% Completed"
+    //         return;
+    //     }
+    //     clearInterval(interval);
+    // }, 120);
 }
