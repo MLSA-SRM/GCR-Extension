@@ -4,24 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Easy GCR Downloader</h1>
-    <h2>Download all your documents. <br>Just in one click!</h2>
-    <br>
+    <h3 id="titleSmall">Stud<span id="titleEazSmall">Eaz</span></h3>
+    <h1>Stud<span id="titleEaz">Eaz</span></h1>
+
+    <button id="dwnbtn"><img id="downloadImg" src="assets/downloadIcon.png" />Download Files</button>
+    <h2 id="subheading">Download all your documents. <br>Just in few click!</h2>
+    
     <button id="runScript">Extract Links</button>
-    <p id="links">Your document titles will show up here...</p>
     <p id="selectedCount"></p>
+    
     <div id="selectAll">
         <input type="checkbox" name="Select All" id="selAllCheck">
-        <span id = "SAText">Select All</span>
+        <span id="SAText">Select All</span>
     </div>
-    <!-- <label for="loadingBar" id="progressPercent">0% Completed</label> -->
-    <!-- <progress id="loadingBar" value="0" max="100"></progress> -->
-    <ul id="titleList">
 
-    </ul>     
+    <div class="titleBox">
+        <ul id="titleList">
+
+        </ul>
+    </div>
+
     <div class="loadingAni wrapper">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -29,8 +37,12 @@
         <div class="shadow"></div>
         <div class="shadow"></div>
         <div class="shadow"></div>
-
     </div>
+    <div class="cancelBox">
+        <button id="cancel">× Cancel</button>
+    </div>
+
     <script src="content.js" charset="UTF-8"></script>
 </body>
+
 </html>

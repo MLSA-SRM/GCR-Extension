@@ -1,21 +1,18 @@
-var btn = document.createElement("BUTTON");
-btn.setAttribute("id", "dwnbtn");
-btn.innerHTML = "Download Files";
-document.body.appendChild(btn);
-document.querySelector("#dwnbtn").style.display = "none";
-
-
 chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
     document.querySelector(".loadingAni").style.display = "none";
-    // document.querySelector("#loadingBar").style.display = "none";
-    // document.querySelector("#progressPercent").style.display = "none";
+    document.querySelector("h1").style.display = "none";
+    document.querySelector("#titleSmall").style.display = "block";
+    document.querySelector("#dwnbtn").style.display = "block";
+    document.querySelector(".titleBox").style.display = "block";
+    document.querySelector(".cancelBox").style.backgroundColor = "#ffffff";
+    document.querySelector("#subheading").style.fontSize = "2rem";
 
     var ul = document.getElementById("titleList");
-    //for loop: file names
     for (var i = 0; i < response["titleList"].length; i++) {
 
         var titleArray = response["titleList"];
         var linkArray = response["hrefList"];
+
         var li = document.createElement("li");
         li.setAttribute("class", "titleItems");
         var checkBox = document.createElement("INPUT");
@@ -44,13 +41,12 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
         li.style.listStyleImage = filePath;
         ul.appendChild(li);
         ul.appendChild(checkBox);
-        document.getElementById("links").innerHTML = "Extracted " + (i + 1) + " links...";
+        document.querySelector("h2").innerHTML = (i + 1) + " files found!"
     }
     document.querySelector("#dwnbtn").style.display = "block";
     document.querySelector("#selAllCheck").style.display = "block";
     document.querySelector("#SAText").style.display = "block";
 
-    // var SA = document.getElementById("selectAll");
     document.getElementById("selAllCheck").addEventListener("click", selectAllFunc);
 
     function selectAllFunc() {
@@ -101,46 +97,15 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
             var selectedValue = selectedFiles[j];
             selectedLinks.push(response["hrefList"][selectedValue]);
         }
-        // JSONIFIED TITLE NAMES    
-        // for(var k = 0; k < selectedFiles.length; k++){
-        //     var selTitle = titleArray[k];
-        //     selectedTitles.push(selTitle);
-        // }
+
         for (var k = 0; k < selectedFiles.length; k++) {
             var str = selectedLinks[k];
             var downloadableLink = str.replace("open", "uc");
             downloadableLink = downloadableLink + "&export=download";
             window.open(downloadableLink);
         }
-        var linksTitles = {
-            URL: selectedLinks,
-            Name: selectedTitles
-        }
-        console.log(JSON.stringify(linksTitles));
-        // console.log(JSON.stringify(selectedTitles));
 
-        //Refresh the extension to empty array
         location.reload();
-
-        //POST Request to the API
-        const url = 'https://randomuser.me/api'; //API link to be replaced
-
-        let data = {
-            dwnldLinks: selectedLinks
-        }
-        jsonObject = JSON.stringify(data);
-        // console.log(jsonObject);
-
-        /*var request = new Request(url, {
-            method: 'POST',
-            body: data,
-            headers: new Headers()
-        }); 
-
-        fetch(request)
-            .then(function () {
-                // Handle response we get from the API
-            })*/
     });
 
     for (var j = 0; j < response["titleList"].length; j++) {
@@ -149,32 +114,23 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
     function sendFileName() {
         var fileClicked = this.innerHTML;
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, fileClicked)
+            chrome.tabs.sendMessage(tabs[0].id, fileClicked) 
         });
     }
 
 });
-// -- END OF chrome.runtime.onMessage() -- 
 
-console.log("Chrome extension is up and running...");
+document.getElementById("cancel").addEventListener("click", function(){
+    location.reload();
+})
 
 document.addEventListener("DOMContentLoaded", () => { document.getElementById("runScript").addEventListener("click", getLinks) });
 
 function getLinks() {
     chrome.tabs.executeScript({ file: "background.js" });
-    document.getElementById("links").innerHTML = "Please wait while we scroll through the page and extract links!";
+    document.querySelector("h2").innerHTML = "Please wait while we scroll through the page and extract links!";
+    document.getElementById("runScript").style.display = "none";
     document.querySelector(".loadingAni").style.display = "block";
-    document.getElementById("runScript").disabled = true;
-    // document.querySelector("#loadingBar").style.display = "block";
-    // document.querySelector("#progressPercent").style.display = "block";
+    document.querySelector(".cancelBox").style.display = "block";
 
-    // var startTime = (new Date()).getTime();
-    // var interval = setInterval(function () {
-    //     if ((new Date()).getTime() - startTime < 25000) {
-    //         document.getElementById("loadingBar").value += 0.48;
-    //         document.getElementById("progressPercent").innerHTML = Math.ceil(document.getElementById("loadingBar").value) + "% Completed"
-    //         return;
-    //     }
-    //     clearInterval(interval);
-    // }, 120);
 }
