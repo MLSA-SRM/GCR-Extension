@@ -1,24 +1,29 @@
 {
-    "manifest_version":2,
-    "name":"Easy GCR Downloader",
-    "version":"1.0",
-    "description": "Get rid of all the hassle of manually downloading materials from Google Classroom. 
-    Choose which materials to be downloaded using this extension.",
-    "permissions":["activeTab"],
-    "content_scripts":
-    [
+    "manifest_version": 2,
+    "name": "StudEaz",
+    "version": "1.0",
+    "description": "Get rid of all the hassle of manually downloading materials from Google Classroom. Download multiple documents in a few clicks.",
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
         {
-            "matches":[
+            "matches": [
                 "<all_urls>"
             ],
-            "js": ["content.js"]
+            "js": [
+                "content.js"
+            ]
         }
     ],
-    
-    "browser_action" : 
-    {
-        "default_icon": "myIcon.png",
+    "icons": {
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    },
+    "browser_action": {
+        "default_icon": "assets/icon16.png",
         "default_popup": "pop.html",
-        "default_title": "Easy GCR Downloader"
+        "default_title": "StudEaz"
     }
 }

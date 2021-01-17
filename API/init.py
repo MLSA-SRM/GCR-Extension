@@ -22,6 +22,7 @@ CORS(app, support_credentials=True)
 def hello_world():
     response = jsonify({'data': 'Default API Endpoint'})
     return response
+    
 
 # return article data sent from ext
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -34,20 +35,23 @@ def return_article_post_test():
         print(i)
         request_zip(i)
     return req
+    
 
  #download and zip file   
 @app.route('/download-zip')
 def request_zip(url):
     for _ in url:
-        a= os.path.abspath(__file__)
-        wget.download(url, a)
+        a= os.path.dirname(__file__)
+        wget.download(url, out=)
     base_path =pathlib.Path(a)
+   
     data = io.BytesIO()
     with zipfile.ZipFile(data, mode='w') as z:
         for f_name in base_path.iterdir():
             z.write(f_name)
+            print(f_name)
     data.seek(0)
-
+    
     return send_file(
         data,
         mimetype='application/zip',
@@ -55,10 +59,8 @@ def request_zip(url):
         attachment_filename='data.zip'
     
     )
-a= os.path.abspath(__file__)
-base_path =pathlib.Path(a)
-os.remove(base_path)
     
 if __name__ == '__main__':
     app.run(debug=True)
 
+    
