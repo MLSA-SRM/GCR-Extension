@@ -1,4 +1,4 @@
-# StudEaz for Google Classroom <img src=https://github.com/MLSA-SRM/GCR-Extension/blob/main/assets/icon16.png width=150 align='right'>
+# StudEaz for Google Classroom <img src=https://github.com/MLSA-SRM/GCR-Extension/blob/main/assets/icon16.png width=130 align='right'>
 ![](https://img.shields.io/github/forks/MLSA-SRM/GCR-Extension?color=green&style=for-the-badge)
 ![](https://img.shields.io/github/stars/MLSA-SRM/GCR-Extension?color=blueviolet&style=for-the-badge)
 ![](https://img.shields.io/badge/contributors-4-pink.svg?style=for-the-badge)
