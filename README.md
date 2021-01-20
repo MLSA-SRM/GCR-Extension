@@ -48,7 +48,7 @@ git clone https://github.com/MLSA-SRM/GCR-Extension
   <ul><br>
    <li>chrome://extensions for Google Chrome</li>
     <li>edge://extensions for Chromium Edge</li>
-   <li> mozilla://addons for Mozilla Firefox
+   <li> about:addons for Mozilla Firefox
   </ul>
  </li>
   
