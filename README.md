@@ -1,10 +1,8 @@
 # StudEaz for Google Classroom <img src=https://github.com/MLSA-SRM/GCR-Extension/blob/main/assets/icon16.png width=130 align='right'>
 ![](https://img.shields.io/github/forks/MLSA-SRM/GCR-Extension?color=green&style=for-the-badge)
 ![](https://img.shields.io/github/stars/MLSA-SRM/GCR-Extension?color=blueviolet&style=for-the-badge)
-![](https://img.shields.io/badge/contributors-4-pink.svg?style=for-the-badge)
-![](https://img.shields.io/github/license/MLSA-SRM/GCR-Extension?color=yellow&style=for-the-badge)
+![](https://img.shields.io/github/license/MLSA-SRM/GCR-Extension?color=blue&style=for-the-badge)
 ![](https://img.shields.io/badge/version-1.0-pink.svg?style=for-the-badge)
-![](https://img.shields.io/badge/open_source-yes-blue.svg?style=for-the-badge)
 
 StudEaz is a browser extension to download multiple documents from a Google Classroom in a few clicks.
 ## Built With:
