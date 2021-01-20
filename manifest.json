@@ -3,25 +3,37 @@
     "name": "StudEaz for Google Classroom",
     "version": "1.0",
     "description": "Get rid of all the hassle of manually downloading materials from Google Classroom. Download multiple documents in a few clicks.",
-    "permissions": [
+    
+    "permissions": 
+    [
         "activeTab"
     ],
-    "content_scripts": [
+
+    "content_scripts": 
+    [
         {
-            "matches": [
-                "<all_urls>"
+            "matches": 
+            [
+                "https://classroom.google.com/*",
+                "http://classroom.google.com/*"
             ],
-            "js": [
+            
+            "js": 
+            [
                 "content.js"
             ]
         }
     ],
-    "icons": {
+
+    "icons": 
+    {
         "16": "assets/icon16.png",
         "48": "assets/icon48.png",
         "128": "assets/icon128.png"
     },
-    "browser_action": {
+    
+    "browser_action": 
+    {
         "default_icon": "assets/icon16.png",
         "default_popup": "pop.html",
         "default_title": "StudEaz for Google Classroom"
