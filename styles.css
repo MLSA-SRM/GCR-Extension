@@ -3,16 +3,14 @@
     font-family: 'Orbitron';
     font-style: normal;
     font-weight: 900;
-    src: url('fonts/orbitronFont/static/Orbitron-Black.woff') format('woff'), /* Modern Browsers */
-         url('fonts/orbitronFont/static/Orbitron-Black.ttf') format('truetype'); /* Safari, Android, iOS */
+    src: url('fonts/orbitronFont/static/Orbitron-Black.woff') format('woff'); /* Modern Browsers */
   }
   /* poppins-600*/
   @font-face {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    src: url('fonts/poppinsFont/Poppins-SemiBold.woff') format('woff'), /* Modern Browsers */
-         url('fonts/poppinsFont/Poppins-SemiBold.ttf') format('truetype'); /* Safari, Android, iOS */
+    src: url('fonts/poppinsFont/Poppins-SemiBold.woff') format('woff'); /* Modern Browsers */
   }
 html,
 body {
