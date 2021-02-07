@@ -7,7 +7,7 @@ function pageScroll() {
 }
 var titles = []; function buttonClicked() {
     // Extracts the URLs for all the elements with the given class name having all the documents
-    var links = document.getElementsByClassName('uqZtlf x0HGk QRiHXd MymH0d maXJsd'), hrefs = [];
+    var links = document.getElementsByClassName('vwNuXe JkIgWb QRiHXd MymH0d maXJsd'), hrefs = [];
     for (var i = 0; i < links.length; i++) {
         hrefs.push(links[i].href);
         titles.push(links[i].title)
@@ -20,7 +20,7 @@ var titles = []; function buttonClicked() {
 // Receives request from content.js to scroll a document into view
 chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
     var elementIndex = titles.indexOf(response);
-    var element = document.getElementsByClassName('uqZtlf x0HGk QRiHXd MymH0d maXJsd')[elementIndex];
+    var element = document.getElementsByClassName('vwNuXe JkIgWb QRiHXd MymH0d maXJsd')[elementIndex];
     element.scrollIntoView({
         behavior: "smooth",
         block: "center",
