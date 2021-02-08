@@ -34,8 +34,9 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
     }
 
     var ul = document.getElementById("titleList");
+    if(response["titleList"]){
     for (var i = 0; i < response["titleList"].length; i++) {
-
+        console.log(response);
         var titleArray = response["titleList"];
         var linkArray = response["hrefList"];
 
@@ -75,8 +76,9 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
     document.querySelector("#dwnbtn").style.display = "block";
     document.querySelector("#selAllCheck").style.display = "block";
     document.querySelector("#SAText").style.display = "block";
-
+    
     document.getElementById("selAllCheck").addEventListener("click", selectAllFunc);
+
 
     // Function to select all/deselect all checkboxes 
     function selectAllFunc() {
@@ -142,21 +144,22 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
     });
 
     // Function to scrollIntoView the document name that is clicked
-    for (var j = 0; j < response["titleList"].length; j++) {
-        document.querySelectorAll(".titleItems")[j].addEventListener("click", sendFileName);
-    }
-    function sendFileName() {
-        var fileClicked = this.innerHTML;
-        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, fileClicked)
-        });
-    }
-});
+        for (var j = 0; j < response["titleList"].length; j++) {
+            document.querySelectorAll(".titleItems")[j].addEventListener("click", sendFileName);
+        }
+        function sendFileName() {
+            var fileClicked = this.innerHTML;
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, fileClicked)
+            });
+        }
+}});
 
 // Reload the extension HTML page when cancel button is clicked
 var cancelElement = document.getElementById("cancel");
 if (cancelElement) {
     document.getElementById("cancel").addEventListener("click", function () {
+        chrome.tabs.executeScript({code: `location.reload();`});
         location.reload();
     });
 }

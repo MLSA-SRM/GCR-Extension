@@ -64,7 +64,9 @@ h2 {
     margin: auto;
     padding-top: 35px;
     margin-left: -2px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding-left: 3px;
+    padding-right: 14px;
 }
 #runScript {
     -webkit-border-radius: 10px;
