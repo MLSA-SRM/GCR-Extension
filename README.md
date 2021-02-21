@@ -19,9 +19,9 @@ StudEaz is a browser extension to download multiple documents from a Google Clas
 | Mozilla Firefox Browser | 84.0.2 |
 ## Installation:
 StudEaz is now available as a browser extension. It can be downloaded from here
-* [Chrome Store Link] ()
-* [Mozilla add-on store Link] ()
-* [Microsoft Edge Add-on Link] ()
+* [Chrome Store Link](https://chrome.google.com/webstore/detail/studeaz-for-google-classr/ddmpckcmhpnpgfcgfgeklphbbigknjgf/related?hl=en)
+* [Mozilla add-on store Link](https://addons.mozilla.org/en-US/firefox/addon/studeaz-for-google-classroom)
+* [Microsoft Edge Add-on Link](https://chrome.google.com/webstore/detail/studeaz-for-google-classr/ddmpckcmhpnpgfcgfgeklphbbigknjgf/related?hl=en)
 
 ## Usage:
 * In a Google Classroom, click on the extension's launcher on the toolbar of your browser.
