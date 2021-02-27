@@ -19,7 +19,7 @@ function buttonClicked() {
   for (var i = 0; i < anchorTags.length; i++) {
     var hrefString = anchorTags[i].href;
 
-    if (hrefString.includes("drive.google.com")) {
+    if (hrefString.includes("drive.google.com") && !hrefString.includes("drive.google.com/drive/folders/")) {
       if (!hrefs.includes(hrefString)) {
         hrefs.push(hrefString);
         var titleString = anchorTags[i].textContent;
