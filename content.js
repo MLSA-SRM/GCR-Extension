@@ -129,13 +129,20 @@ chrome.runtime.onMessage.addListener(function (response, sender, sendResponse) {
             }
 
             // Manipulation of drive links to make it downloadable document
+            var downloadWindows = [];
             for (var k = 0; k < selectedFiles.length; k++) {
                 var str = selectedLinks[k];
                 var downloadableLink = str.replace("open", "uc");
                 downloadableLink = downloadableLink + "&export=download";
-                window.open(downloadableLink, "_blank", "fullscreen=yes");
+                var downloadWindow = window.open(downloadableLink, "_blank", "fullscreen=yes");
+                downloadWindows.push(downloadWindow);
+
             }
-            location.reload();
+            setTimeout(function () {
+                for (var l = 0; l < downloadWindows.length; l++) {
+                    downloadWindows[l].close();
+                }
+            }, 20000);
         });
 
         // Function to scrollIntoView the document name that is clicked
