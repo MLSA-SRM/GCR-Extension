@@ -64,6 +64,14 @@ git clone https://github.com/MLSA-SRM/GCR-Extension
  </li>
 </ul>
 
+## Troubleshooting:
+
+* In case of cases where empty .docx files are visible in the extension, reload the page and run the extension again.
+
+![](https://i.ibb.co/Wf8rpN8/Screen-Shot-2021-05-01-at-4-57-48-PM.png)
+
+* While running the extension in the incognito mode, it would display a 403 Forbidden error. In this case, log into Google Classroom into your browser and run the extension again.
+
 ## Contributors:
 
 * [Mihir Singh](https://github.com/mihirs16)
